@@ -45,14 +45,14 @@ Sans perte de généralité supposons $b_2 \not= 0$.
     \Longrightarrow\ & (b_2b_1' - b_1b_2')y = b_2c_1 - b_1c_2\\
     \Longrightarrow\ & y = \frac{b_2c_1 - b_1c_2}{b_2b_1' - b_1b_2'}
 \end{align*}
-$$\Longrightarrow b_2b_1' - b_1b_2' \not= 0 \Leftrightarrow \text{Le système admet une unique solution}$$
+$$\Longrightarrow b_2b_1' - b_1b_2' \not= 0 \Longleftrightarrow \text{Le système admet une unique solution comme $x$ et $y$ sont indépendants}$$
 
 Mq. $b_2b_1' - b_1b_2' \not= 0$\\
 Supposons par l'absurde $b_2b_1' - b_1b_2' = 0$
 \begin{align*}
     b_2 \not= 0 \implies& b_1 = \frac{b_1b_2'}{b_2}\ \text{(par hypothèse)}\\
     \implies& b' = \left(\frac{b_1}{b_2}\cdot b_2', b_2'\right)\\
-    \implies& b_2' \not= 0\ \text{(car $b$ non-nul)}\\
+    \implies& b_2' \not= 0\ \text{(car $b'$ non-nul)}\\
     \implies& b = \left(\frac{b_1'}{b_2'}\cdot b_2, b_2\right)\\
     \implies& b_2 \not= 0\ \text{(car $b$ non-nul)}\\
 \end{align*}
@@ -102,10 +102,10 @@ $E = \R^2,\ F = \left<e_1\right>,\ G = \left<e_1+e_2\right>,\ H = \left<e_1-e_2\
 On remarque 
 \begin{itemize}
     \item $\left<G+H\right> = \R^2 \implies G+H = \left<e_1,e_2\right>$
-    \item $G\cap G + F\cap H = \{\mathbb{0}_E\}$
+    \item $(F\cap G) + (F\cap H) = \{\mathbb{0}_E\}$
     \item $F\cap(G+H) = F\cap\R^2 = F$
 \end{itemize}
-donc $F\cap(G+H) \not\in G\cap G + F\cap H$
+donc $F\cap(G+H) \not\in (F\cap G) + (F\cap H)$
 \subsection*{2}
 Soient $U,V \leq \R^6$ t.q. $dim(U)=2,\ dim(V)=5$
 \subsubsection*{a}
@@ -145,7 +145,7 @@ Alors
     \xRightarrow{\ref{3}}\ & x = t\\
     \Longrightarrow\ & (x,y,z,t) = \left(t,y,\frac{2}{3}t,t\right) = y\underset{v_1}{\underline{(0,1,0,0)}}+t\underset{v_2}{\underline{\left(1,0,\frac{2}{3},1\right)}}\\
     \Longrightarrow\ & (x,y,z,t) = yv_1 + tv_2\\
-    \Longrightarrow\ & v1,v2\ \text{génératrice}
+    \Longrightarrow\ & v_1,v_2\ \text{génératrice}
 \end{align*}
 Posons $A := \{v_1,v_2\}$\\
 Mq $A$ est libre\\
@@ -167,7 +167,7 @@ donc $dim(W) = |C| = 3$
 \subsubsection*{b}
 Mq. $U+W = \R^4$\\
 On travaille avec les base de $U$ et $W$, $A$ et $C$ respectivement.\\
-$A\cup C = {v_1,v_2,w_1,w_2,w_4}$ engendre $U+W$\\
+$A\cup C = \{v_1,v_2,w_1,w_2,w_4\}$ engendre $U+W$\\
 On remarque $v_2 = e_2,\ w_1 = e_1,\ w_2 = 4e_2,\ w_4 = e_4$\\
 On remarque que $A\cup C$ engendre la base canonique $\{e_1,e_2,e_3,e_4\}$\\
 On sait que c'est vrai pour $e_1,e_2,e_4$, on remarque aussi que\\
