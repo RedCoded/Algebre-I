@@ -1,0 +1,179 @@
+\documentclass[11pt]{exam}
+
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ebproof}
+\usepackage{centernot}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage{cases}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\usepackage[bb=boondox]{mathalfa}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\0}{\mathbb{0}}
+\let\refold\ref
+\renewcommand{\ref}[1]{(\refold{#1})}
+
+\setlength{\parindent}{0pt}
+
+\title{Algèbre I - Série 4 - corrigé}
+
+\begin{document}
+\maketitle
+
+\section*{Exercice 1}
+Soient $b = (b_1, b_2), b' = (b_1', b_2') \in \R^2$, non-colinéaires. Mq. $(b, b')$ forment une base\\
+\underline{Rappel}\\
+Thm 3.2: Soit $A \in \mathcal{M}_{n,m}(\R).\ \forall c \in \R^m,  Ax = c$ admet une unique solution $\Leftrightarrow$ les vecteurs colonnes de $A$ forment une base de l'ensemble $\R^m$.\\
+Donc on cherche à montrer qu'il existe une unique solution au système suivant:
+\begin{numcases}{\text{avec}\ A = (b, b'),\ Ax = c \Leftrightarrow}
+    b_1x + b_1'y &$= c_1$ \label{1}\\
+    b_2x + b_2'y &$= c_2$ \label{2}
+\end{numcases}
+
+Comme $b,b'$ non-colinéaires, on a $b,b'$ non-nuls\\
+Sans perte de généralité supposons $b_2 \not= 0$.
+\begin{align*}
+    b_2 \not= 0 \xRightarrow{\ref{2}}\ & x = \frac{c_2-b_2'y}{b_2}\\
+    \xRightarrow{\ref{1}}\ & b_1\cdot\left(\frac{c_2-b_2'y}{b_2}\right) + b_1'y = c_1\\
+    \Longrightarrow\ & (b_2b_1' - b_1b_2')y = b_2c_1 - b_1c_2\\
+    \Longrightarrow\ & y = \frac{b_2c_1 - b_1c_2}{b_2b_1' - b_1b_2'}
+\end{align*}
+$$\Longrightarrow b_2b_1' - b_1b_2' \not= 0 \Leftrightarrow \text{Le système admet une unique solution}$$
+
+Mq. $b_2b_1' - b_1b_2' \not= 0$\\
+Supposons par l'absurde $b_2b_1' - b_1b_2' = 0$
+\begin{align*}
+    b_2 \not= 0 \implies& b_1 = \frac{b_1b_2'}{b_2}\ \text{(par hypothèse)}\\
+    \implies& b' = \left(\frac{b_1}{b_2}\cdot b_2', b_2'\right)\\
+    \implies& b_2' \not= 0\ \text{(car $b$ non-nul)}\\
+    \implies& b = \left(\frac{b_1'}{b_2'}\cdot b_2, b_2\right)\\
+    \implies& b_2 \not= 0\ \text{(car $b$ non-nul)}\\
+\end{align*}
+On observe $b_2b' = b_2'b$ donc $b,b'$ sont colinéaires $\lightning$\\
+donc on a bien $b_2b_1' - b_1b_2' \not= 0$ et le système admet une unique solution\\
+donc $(b,b')$ est une base de $\R^2$
+
+\section*{Exercice 2}
+Considérons $\mathcal{F} = \left\{\begin{pmatrix}0&1\\0&1\end{pmatrix}, \begin{pmatrix}1&0\\1&0\end{pmatrix}, \begin{pmatrix}1&-1\\-1&1\end{pmatrix}\right\}$
+\subsection*{1}
+Mq. $\mathcal{F} = \left\{\begin{pmatrix}0&1\\0&1\end{pmatrix}, \begin{pmatrix}1&0\\1&0\end{pmatrix}, \begin{pmatrix}1&-1\\-1&1\end{pmatrix}\right\}$ est une famille libre de de $\mathcal{M}_{2,2}(\R)$ (sur $\R$)\\
+Soient $\lambda_1, \lambda_2, \lambda_3 \in \R$ t.q.
+\begin{align*}
+    &\lambda_1\begin{pmatrix}0&1\\0&1\end{pmatrix} + \lambda_2\begin{pmatrix}1&0\\1&0\end{pmatrix} + \lambda_3\begin{pmatrix}1&-1\\-1&1\end{pmatrix} = \begin{pmatrix}0&0\\0&0\end{pmatrix}\\
+    &= \begin{pmatrix}\lambda_2+\lambda_3&\lambda_1-\lambda_3\\\lambda_2-\lambda_3&\lambda_1+\lambda_3\end{pmatrix}\\
+    &\implies (\lambda_2+\lambda_3) + (\lambda_2-\lambda_3) = \lambda_2 = 0\\
+    &\implies (\lambda_2+\lambda_3) - (\lambda_2-\lambda_3) = \lambda_3 = 0\\
+    &\implies \lambda_1 + \lambda_3 = \lambda_1 = 0
+\end{align*}
+$l_1 = l_2 = l_3 = 0$ donc $\mathcal{F}$ est libre.
+\subsection*{2}
+Complétons $\mathcal{F}$ en une base de $\mathcal{M}_{2,2}(\R)$\\
+\underline{Remarque}\\
+$dim(\mathcal{M}_{2,2}(\R)) = 4,\ |\mathcal{F}| = 3$, donc on doit ajouter 1 élément\\\hbox{}
+
+On peut ajouter $\begin{pmatrix}0&1\\0&0\end{pmatrix}$\\
+Mq. $\mathcal{F}' = \left\{\begin{pmatrix}0&1\\0&1\end{pmatrix}, \begin{pmatrix}1&0\\1&0\end{pmatrix}, \begin{pmatrix}1&-1\\-1&1\end{pmatrix}, \begin{pmatrix}0&1\\0&0\end{pmatrix}\right\}$ est libre.\\
+Preuve identique à celle de $\mathcal{F}$ libre.\\
+Donc $\mathcal{F}'$ est libre et maximale ($4$ éléments pour dimension $4$) donc c'est une base.
+
+\section*{Exercice 3}
+Soient $E$ un e.v. et $F,G,H \leq E$\\
+\underline{Rappel}\\
+$G+H,\ F\cap(G+H),\ (F\cap G) + (F\cap H)$ sont des ss.e.v de $E$\\\hbox{}
+
+\subsection*{1}
+\subsubsection*{(i)}
+Mq. $(F\cap G) + (F\cap H) \subset F\cap(G+H)$\\
+Soit $w \in (F\cap G) + (F\cap H)$. Mq $w \in F\cap(G+H)$.\\
+par déf. de $+$: $\exists u\in F\cap G,v\in F\cap H\ \text{t.q.}\ w = u+v$\\
+par déf. de $\cap$: $u\in F\cap G\ \text{et}\ v\in F\cap H \implies u,v \in F\ \text{et}\ u\in G\ \text{et}\ v\in H\\\implies u+v \in F \ \text{et}\ u+v \in G+H\\\implies w = u+v \in F\cap(G+H)$\\
+donc $(F\cap G) + (F\cap H) \subset F\cap(G+H)$
+\subsubsection*{(ii)}
+Mq. $F\cap(G+H) \not\subset (F\cap G) + (F\cap H)$ en général\\
+Contre exemple\\
+$E = \R^2,\ F = \left<e_1\right>,\ G = \left<e_1+e_2\right>,\ H = \left<e_1-e_2\right>$\\
+On remarque 
+\begin{itemize}
+    \item $\left<G+H\right> = \R^2 \implies G+H = \left<e_1,e_2\right>$
+    \item $G\cap G + F\cap H = \{\mathbb{0}_E\}$
+    \item $F\cap(G+H) = F\cap\R^2 = F$
+\end{itemize}
+donc $F\cap(G+H) \not\in G\cap G + F\cap H$
+\subsection*{2}
+Soient $U,V \leq \R^6$ t.q. $dim(U)=2,\ dim(V)=5$
+\subsubsection*{a}
+\begin{itemize}
+    \item Valeur max\\
+    $E,V \leq \R^6 \implies dim(U+V) \leq 6$\\
+    (ça peut être $=6$) ex. $U = \left<e_5,e_6\right>,\ V = \left<e_1,e_2,e_3,e_4,e_5\right> \implies dim(U+V) = 6$
+    \item Valeur min\\
+    $dim(U+V) \geq max\{dim(U), dim(V)\} = max\{2,5\} = 5$ Ca ne peut pas être moins car $U \subset U+V$ comme $\mathbb{0}_{\R^6} \in V$ (idem pour V)\\
+    ex. $U = \left<e_1,e_2\right>,\ V = \left<e_1,e_2,e_3,e_4,e_5\right> \implies dim(U+V) = 5$
+\end{itemize}
+\subsubsection*{b}
+\underline{Rappel}\\
+Formule de dimension: $dim(U+V) = dim(U) + dim(V) - dim(U\cap V)\\\implies dim(U\cap V) = dim(U) + dim(V) - dim(U+V)$\\\hbox{}
+
+donc $dim(U+V) = 2+5-5 = 2$ ou $2+5-6 = 1$ en reprenant $U+V$ de la partie a.\\
+ex.\\
+$U = \left<e_5,e_6\right>,\ V = \left<e_1,e_2,e_3,e_4,e_5\right> \implies dim(U\cap V) = dim(\left<e_5\right>) = 1$\\
+$U = \left<e_1,e_2\right>,\ V = \left<e_1,e_2,e_3,e_4,e_5\right> \implies dim(U\cap V) = dim(\left<e_1,e_2\right>) = 2$\\
+
+\subsection*{3}
+Considérons les ss.e.v de $\R^4$ \\
+$U = \left\{(x,y,z,t)\in \R^4\ \middle|\ 2x+3z-4t = 0\ \text{et}\ 3z-2t = 0\right\}$ et\\
+$W = \left<\{(1,0,0,0),(0,4,0,0),(2,-1,0,0),(0,0,0,1)\}\right>$
+\subsubsection*{a}
+Calculons les dimensions\\\hbox{}
+
+(i) On cherche une base de $U$\\
+Soit $(x,y,z,t) \in U$\\
+Alors
+\begin{numcases}{}
+    2x+3z-4t &$= 0$ \label{1}\\
+    3z-2t &$= 0$ \label{2}
+\end{numcases}
+\begin{align*}
+    \xRightarrow{\ref{2}}\ & z = \frac{2}{3}t\\
+    \xRightarrow{\ref{1}}\ & x = t\\
+    \Longrightarrow\ & (x,y,z,t) = \left(t,y,\frac{2}{3}t,t\right) = y\underset{v_1}{\underline{(0,1,0,0)}}+t\underset{v_2}{\underline{\left(1,0,\frac{2}{3},1\right)}}\\
+    \Longrightarrow\ & (x,y,z,t) = yv_1 + tv_2\\
+    \Longrightarrow\ & v1,v2\ \text{génératrice}
+\end{align*}
+Posons $A := \{v_1,v_2\}$\\
+Mq $A$ est libre\\
+Soient $a,b \in \R$ t.q. $av_1 + bv_2 = (0,0,0,0)$\\
+$\implies (0,a,0,0) + \left(b,0,\frac{2}{3}b,b\right) = (0,0,0,0)\\\implies a = b = 0 \implies A\ \text{libre}$\\
+donc $A$ est libre et génératrice donc une base de $U$\\
+donc $dim(U) = |A| = 2$\\\hbox{}
+
+(ii) Pour $W$ on note $B = \{\underset{w_1}{\underline{(1,0,0,0)}},\underset{w_2}{\underline{(0,4,0,0)}},\underset{w_3}{\underline{(2,-1,0,0)}},\underset{w_4}{\underline{(0,0,0,1)}}\}$\\
+Trouvons une base $C$ en l'extrayant de $B$ (donc $C \subset B$)\\
+Remarquons $w_3 = 2w_1-\frac{1}{2}w_2$, donc $\left<\{w_1, w_2, w_4\}\right> = \left<B\right>$\\
+Posons $C = \{w_1, w_2, w_4\}$, $C$ est donc génératrice\\
+Mq. $C$ est libre\\
+Soient $a,b,c \in \R$ t.q. $aw_1 + bw_2 + cw_3 = (0,0,0,0)$\\
+$\implies (a,0,0,0) + (0,4b,0,0) + (0,0,0,-1) = (0,0,0,0)\\\implies a = b = c = 0 \implies C\ \text{libre}$\\
+donc $C$ est libre et génératrice donc une base de $W$\\
+donc $dim(W) = |C| = 3$
+
+\subsubsection*{b}
+Mq. $U+W = \R^4$\\
+On travaille avec les base de $U$ et $W$, $A$ et $C$ respectivement.\\
+$A\cup C = {v_1,v_2,w_1,w_2,w_4}$ engendre $U+W$\\
+On remarque $v_2 = e_2,\ w_1 = e_1,\ w_2 = 4e_2,\ w_4 = e_4$\\
+On remarque que $A\cup C$ engendre la base canonique $\{e_1,e_2,e_3,e_4\}$\\
+On sait que c'est vrai pour $e_1,e_2,e_4$, on remarque aussi que\\
+$e_3 = \frac{3}{2}v_1-\frac{3}{2}e_1-\frac{3}{2}e_4$\\
+donc $\R^4 \subset \left<A\cup C\right> = U+W$\\
+mais $U+W \subset \R^4$\\
+donc $U+W = \R^4$ (par double inclusion)
+
+\end{document}
